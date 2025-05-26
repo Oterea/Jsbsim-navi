@@ -32,7 +32,7 @@ class Run_Args:
     """the notes of this run"""
     version: str = re.search(r'v\d+\.\d+\.\d+', Path(sys.argv[0]).resolve().parent.name).group()
     """the version of this project"""
-    wandb_project_name: str = f"zk-project-{version}"
+    wandb_project_name: str = f"Jsbsim-navi-{version}"
     """the wandb's project name"""
     vec_normalize: bool = False
     """whether to normalize the observation"""

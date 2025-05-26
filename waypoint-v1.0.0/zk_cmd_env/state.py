@@ -27,7 +27,7 @@ class State:
         # bounds
         self.altitude = cur_state[2]
 
-        scale_state = np.array([cur_state[:3] * 1e-4, cur_state[3:6] * 1e-2], cur_state[6:])
+        scale_state = np.concatenate([cur_state[:3] * 1e-4, cur_state[3:6] * 1e-2, cur_state[6:]])
 
         return np.concatenate([scale_state, target_deltas * 1e-2])
 
