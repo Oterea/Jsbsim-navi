@@ -23,6 +23,8 @@ class State:
         self.old_distance = self.new_distance
         self.new_distance = np.linalg.norm(target_deltas[:3])
         self.distance_delta = self.old_distance - self.new_distance
+        # roll for reward
+        self.roll = cur_state[6]
 
         # bounds
         self.altitude = cur_state[2]

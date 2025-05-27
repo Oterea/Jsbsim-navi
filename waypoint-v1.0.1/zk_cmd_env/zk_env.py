@@ -146,7 +146,6 @@ class ZK_Env(gym.Env):
             ("distance_delta", self.state.distance_delta, distance_delta_fn),
             ("distance", self.state.new_distance, distance_fn),
             ("roll", self.state.roll, roll_fn),
-
         ]
 
         for name, value, reward_fn in reward_items:

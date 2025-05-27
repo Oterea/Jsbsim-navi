@@ -85,6 +85,6 @@ if __name__ == "__main__":
                 vec_env = VecNormalize(vec_env) if run_args.vec_normalize else vec_env
                 # vec_env = VecFrameStack(vec_env, 4)
                 # policy_kwargs = dict(net_arch=[128, 128])
-                model = SAC("MlpPolicy", vec_env, tensorboard_log="runs", verbose=1) # verbose print loss etc. in terminal. 指定tensorboard_log wandb才会同步损失等信息
+                model = PPO("MlpPolicy", vec_env, tensorboard_log="runs", verbose=1) # verbose print loss etc. in terminal. 指定tensorboard_log wandb才会同步损失等信息
                 model.learn(total_timesteps=save_freq * 3, callback=callback)
 
