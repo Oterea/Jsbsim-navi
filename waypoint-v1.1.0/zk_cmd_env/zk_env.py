@@ -170,9 +170,9 @@ class ZK_Env(gym.Env):
             obs['position/long-gc-deg'] * GEO_METER,
             obs['position/h-sl-ft'] * FOOT_METER,
 
-            obs['velocities/u-fps'] * FOOT_METER,
-            obs['velocities/v-fps'] * FOOT_METER,
-            obs['velocities/w-fps'] * FOOT_METER,
+            obs['velocities/u-fps'] * FOOT_METER,  # 机体x轴，机头方向为正
+            obs['velocities/v-fps'] * FOOT_METER,  # 机体y轴，右侧为正
+            obs['velocities/w-fps'] * FOOT_METER,  # 机体z轴，向上为正
 
             # np.radians(np.clip(obs['aero/alpha-deg'], -30, 30)),
             # np.radians(np.clip(obs['aero/beta-deg'], -30, 30)),
@@ -186,6 +186,10 @@ class ZK_Env(gym.Env):
             obs['velocities/r-rad_sec'],
 
         ]
+        # print(f"-------------------")
+        # print(f"x {cur_state[3]}")
+        # print(f"y {cur_state[4]}")
+        # print(f"z {cur_state[5]}")
         # print(f"{obs['simulation/dt']}")
         # print(f"{obs['simulation/sim-time-sec']}")
         observation = self.state.step_state(cur_state=cur_state, goal=self.goal)
